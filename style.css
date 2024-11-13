@@ -1,0 +1,212 @@
+#root{
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+.liste-title{
+    text-align: center;
+    font-size: 40px;
+    margin: 20px;
+}
+img.affiche{
+    width: 151px;
+    min-height: 201px;
+    max-height: 201px;
+    border-radius: 5px;
+}
+img.affiche:hover{
+    transition-duration: 0.5s;
+    transform: scale(1.1);
+    max-height: 201px;
+    z-index: 0;
+}
+.divImage{
+    overflow: hidden;
+}
+.anime{
+    margin: 20px;
+    width: 142px;
+    height: 221px;
+    display: block;
+    overflow: hidden;
+    position: relative; /* Ajout de la propriété position relative */
+}
+
+.title{
+    font-size: 12px;
+}
+.date, .episode, .saison{
+    font-size: 15px;
+    position: absolute; /* Ajout de la propriété position absolute */
+    bottom: 14px;
+    padding: 0px 4px;
+    text-align: center;
+    background-color: rgba(30,34,44,.9);
+    color: white;
+    border-radius: 5px;
+    z-index: 1;
+}
+.date{
+    margin-bottom: 38px;
+    margin-left: 5px;
+}
+.episode{
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+.saison{
+    margin-bottom: 10px;
+    right: 5px;
+}
+.langue{
+    font-size: 15px;
+    top: 4px;
+    right: 5px;
+    position: absolute;
+    padding: 0px 4px 0px 4px;
+    text-align: center;
+    background-color: rgba(30,34,44,.9);
+    color: white;
+    border-radius: 5px;
+    z-index: 1;
+}
+.jour{
+    font-size: 15px;
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    padding: 0px 4px;
+    text-align: center;
+    background-color: rgba(30,34,44,.9);
+    color: white;
+    border-radius: 5px;
+    z-index: 1;
+}
+.liste-button-semaine{
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    
+    margin: 20px;
+}
+li{
+    list-style-type: none;
+}
+ul button{
+    padding: 4px 10px;
+    background-color: #eb1b31;
+    margin: 10px;
+    border-radius: 10px;
+}
+ul button:hover{
+    background-color: hsl(352, 96%, 61%);
+    cursor: pointer;
+}
+
+.activeDay{
+    background-color: #b40a21;
+}
+.activeDay:hover{
+    background-color: #b40a21;
+}
+.langChoice{
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    margin: 20px;
+}
+.langChoice button{
+    background-color: rgba(30,34,44,0.6);
+    width: 151px;
+    height: 34px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.langChoice button:hover{
+    background-color: rgba(30,34,44,0.8);
+    cursor: pointer;
+}
+.langChoice .activeLangue{
+    background-color: #eb1b31;
+}
+.langChoice .activeLangue:hover{
+    background-color: #eb1b31;
+    cursor: default;
+}
+body{
+    background-color: #17191f;
+    color: #f1f1f1;
+    font-style: bold;
+}
+footer {
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
+    padding: 10px 20px;
+    position: relative; /* Ajout de la propriété position relative au footer */
+    min-height: 130px;
+    bottom: 0px; /* Positionnement en bas de la page */
+    background-color: #1e222c;
+}
+
+img.logo {
+    text-align: center;
+    margin-left: 100px;
+    width: 70px;
+    height: 70px;
+}
+
+    @media screen and (max-width: 360px) {
+        .liste-title {
+            font-size: 30px; /* Réduire la taille du titre pour mieux s'adapter aux petits écrans */
+        }
+    
+        .liste-button-semaine {
+            margin: 10px; /* Réduire la marge autour des boutons pour mieux s'adapter aux petits écrans */
+        }
+    
+        .anime {
+            margin: 8px ;
+        }
+    }
+
+
+    .search {
+        display: flex;
+        justify-content: center;
+        margin: 20px auto; /* Centrage et espace autour de la barre de recherche */
+        width: 100%; /* Prendre toute la largeur */
+        
+    }
+    
+    .search input {
+        width: 80%; /* Largeur adaptable, vous pouvez l'ajuster */
+        max-width: 500px; /* Limite de largeur maximale */
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: 2px solid rgba(30,34,44,.9); /* Bordure assortie aux couleurs de votre design */
+        background-color: rgba(30,34,44,.8); /* Fond similaire à l'environnement */
+        color: #f1f1f1; /* Couleur du texte */
+        font-size: 16px;
+        outline: none; /* Retirer l'effet de focus par défaut */
+        border-color: #eb1b31; /* Couleur de bordure au focus */
+    
+        transition: all 0.3s ease; /* Transition douce pour les effets au survol */
+    }
+    
+    .search input::placeholder {
+        color: rgba(241, 241, 241, 0.7); /* Couleur de l'espace réservé (placeholder) plus claire */
+    }
+    
+    .search input:focus {
+        background-color: rgba(30,34,44,1); /* Fond légèrement plus sombre au focus */
+    }
+    
+    @media screen and (max-width: 360px) {
+        .search input {
+            width: 90%; /* Réduction de la largeur pour les petits écrans */
+            font-size: 14px;
+        }
+    }
+    
