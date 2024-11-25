@@ -67,6 +67,7 @@
             let dayChoice = ""
         const buttonsDay = document.querySelectorAll("ul button")
 
+
             searchBar.addEventListener("input", (e) => {
                 buttonsDay.forEach(button => {
                     button.className = button.className.replace("activeDay", "")
@@ -75,6 +76,10 @@
                 buttonSearch.className = buttonSearch.className + " activeDay"
                 search = e.target.value
                 dayChoice = "search"
+                // Update the URL with the search query parameter
+                const params = new URLSearchParams(window.location.search)
+                params.set('search', search)
+                window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`)
                 test()
             })
 
@@ -113,6 +118,17 @@
              let json;
             let jsonAnimeBl;
              //Récupérer les données de l'API FRAnime
+            let searchShare = getQueryParam('search');
+
+            if (searchShare !== null) {
+                searchBar.value = searchShare
+                search = searchShare
+                const buttonSearch = document.querySelector(".searc")
+                const buttonDayChoise = document.querySelector(".activeDay")
+                buttonDayChoise.className = buttonDayChoise.className.replace("activeDay", "")
+                buttonSearch.className = buttonSearch.className + " activeDay"
+                dayChoice = "search"
+            }
             const test = async () => {
              const setData = async () => {
                  const response = await fetch("https://api.franime.fr/api/calendrier_data")
@@ -241,59 +257,15 @@
         }
 
 
+            // Fonction pour obtenir les paramètres de l'URL
+            function getQueryParam(param) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(param);
+            }
+
+
 
     </script>
-<script>
-    const fetchAniListAnime = async (username) => {
-        const query = `
-        query ($username: String) {
-            MediaListCollection(userName: $username, type: ANIME) {
-                lists {
-                    name
-                    entries {
-                        media {
-                            id
-                            title {
-                                romaji
-                                english
-                            }
-                            coverImage {
-                                large
-                            }
-                            episodes
-                            status
-                        }
-                    }
-                }
-            }
-        }
-    `;
-
-        const variables = {
-            username: username
-        };
-
-        const response = await fetch('https://graphql.anilist.co', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                query: query,
-                variables: variables
-            })
-        });
-
-        const data = await response.json();
-        return data.data.MediaListCollection;
-    };
-
-    // Exemple d'utilisation :
-    fetchAniListAnime('Zaphir21')
-        .then(data => console.log(data))
-        .catch(error => console.error(error));
-
-</script>
 </body>
 
 </html>
