@@ -12,10 +12,10 @@ Ce projet est un site web pour répertorier tous les animes qui sortent de la se
 ## Installation
 1. Clonez ce dépôt sur votre machine locale :
     ```bash
-    git clone https://github.com/zaphir21/PlanningAnime.git
+    git clone https://github.com/zaphir21/planningFRAnime.git
     ```
 2. Ouvrez le fichier `index.html` dans votre navigateur web.
 
 ## Auteur
-Ce site WEB a été réalisé par Zaphir et est disponible sur [ici](https://zaphir21.github.io/PlanningAnime/).
+Ce site WEB a été réalisé par Zaphir et est disponible sur [ici](https://planning.zaphir.me).
 L'API utilisé vient du site [FRAnime](https://franime.fr/)
